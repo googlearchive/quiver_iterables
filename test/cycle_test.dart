@@ -12,18 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library quiver.iterables;
+library quiver.iterables.cycle_test;
 
-import 'dart:collection';
+import 'package:test/test.dart';
+import 'package:quiver_iterables/iterables.dart';
 
-part 'src/concat.dart';
-part 'src/count.dart';
-part 'src/cycle.dart';
-part 'src/enumerate.dart';
-part 'src/infinite_iterable.dart';
-part 'src/merge.dart';
-part 'src/min_max.dart';
-part 'src/partition.dart';
-part 'src/generating_iterable.dart';
-part 'src/range.dart';
-part 'src/zip.dart';
+main() {
+  group('cycle', () {
+    test("should create an empty iterable given an empty iterable", () {
+      expect(cycle([]), []);
+      expect(cycle([]).isEmpty, true);
+      expect(cycle([]).isNotEmpty, false);
+    });
+
+    test("should cycle its argument", () {
+      expect(cycle([1, 2, 3]).take(7), [1, 2, 3, 1, 2, 3, 1]);
+      expect(cycle([1, 2, 3]).isEmpty, false);
+      expect(cycle([1, 2, 3]).isNotEmpty, true);
+    });
+  });
+}
