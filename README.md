@@ -14,7 +14,7 @@ A collection of utilities for generating and manipulating Dart Iterables.
 `zip` create, transform, or combine Iterables in different ways, similar to
 Python's itertools.
 
-`min`, `max`, and `extent` retreive the minimum and maximum elements from an
+`min`, `max`, and `extent` retrieve the minimum and maximum elements from an
 iterable.
 
 `GeneratingIterable` is an easy way to create lazy iterables that produce
