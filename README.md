@@ -1,4 +1,4 @@
-Quiver iterables
+Quiver Iterables
 ================
 
 A collection of utilities for generating and manipulating Dart Iterables.
@@ -8,7 +8,7 @@ A collection of utilities for generating and manipulating Dart Iterables.
 
 ## Documentation
 
-[API Docs](http://www.dartdocs.org/documentation/quiver_iterables/latest) are available.
+[API Docs](http://www.dartdocs.org/documentation/quiver_iterables/latest)
 
 `concat`, `count`, `cycle`, `enumerate`, `merge`, `partition`, `range`, and
 `zip` create, transform, or combine Iterables in different ways, similar to
