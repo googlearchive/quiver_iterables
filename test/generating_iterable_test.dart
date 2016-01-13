@@ -39,33 +39,31 @@ main() {
 
   group('TwoWayGeneratingIterable', () {
     test("should create an empty iterable for a null start object", () {
-      var iterable = new TwoWayGeneratingIterable(() => null, (n) => null,
-        () => null, (n) => null);
+      var iterable = new TwoWayGeneratingIterable(
+          () => null, (n) => null, () => null, (n) => null);
       expect(iterable, []);
     });
 
     test("should create one-item empty iterable when next returns null", () {
-      var iterable = new TwoWayGeneratingIterable(() => "Hello", (n) => null,
-        () => "Hello", (n) => null);
+      var iterable = new TwoWayGeneratingIterable(
+          () => "Hello", (n) => null, () => "Hello", (n) => null);
       expect(iterable, ["Hello"]);
     });
 
     test("should add items until next returns null in both ways", () {
       var first = new LinkedEntry();
-      var second = new LinkedEntry()
-        ..previous = first;
-      var third = new LinkedEntry()
-        ..previous = second;
+      var second = new LinkedEntry()..previous = first;
+      var third = new LinkedEntry()..previous = second;
       first.next = second;
       second.next = third;
 
-      var iterable = new TwoWayGeneratingIterable<LinkedEntry>(() => first, (n) => n.next,
-        () => third, (n) => n.previous);
+      var iterable = new TwoWayGeneratingIterable<LinkedEntry>(
+          () => first, (n) => n.next, () => third, (n) => n.previous);
       expect(iterable, [first, second, third]);
 
       List reverse = [];
       Iterator reverseIterator = iterable.reverseIterator;
-      while(reverseIterator.moveNext()) {
+      while (reverseIterator.moveNext()) {
         reverse.add(reverseIterator.current);
       }
 
@@ -74,15 +72,13 @@ main() {
 
     test("last should give last element", () {
       var first = new LinkedEntry();
-      var second = new LinkedEntry()
-        ..previous = first;
-      var third = new LinkedEntry()
-        ..previous = second;
+      var second = new LinkedEntry()..previous = first;
+      var third = new LinkedEntry()..previous = second;
       first.next = second;
       second.next = third;
 
-      var iterable = new TwoWayGeneratingIterable<LinkedEntry>(() => first, (n) => n.next,
-        () => third, (n) => n.previous);
+      var iterable = new TwoWayGeneratingIterable<LinkedEntry>(
+          () => first, (n) => n.next, () => third, (n) => n.previous);
       expect(iterable.last, third);
     });
   });

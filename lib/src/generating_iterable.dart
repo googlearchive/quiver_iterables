@@ -73,13 +73,13 @@ class TwoWayGeneratingIterable<T> extends IterableBase<T> {
   final previous;
 
   TwoWayGeneratingIterable(T this.initial(), T this.next(T o),
-    T this.terminating(), T this.previous(T o));
+      T this.terminating(), T this.previous(T o));
 
   @override
   Iterator<T> get iterator => new _GeneratingIterator(initial(), next);
 
   Iterator<T> get reverseIterator =>
-    new _GeneratingIterator(terminating(), previous);
+      new _GeneratingIterator(terminating(), previous);
 
   @override
   T get last {
