@@ -23,3 +23,6 @@ an object graph, like the parent relationship in a tree.
 
 `InfiniteIterable` is a base class for Iterables that throws on operations that
 require a finite length.
+
+`isEmpty`, `isNotEmpty` checks if an iterable is not `null` before checking if
+it's empty or not.

@@ -12,19 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-library quiver.iterables;
+part of quiver.iterables;
 
-import 'dart:collection';
+/// Returns `true` if [i] is null or empty.
+bool isEmpty(Iterable i) => i == null || i.isEmpty;
 
-part 'src/concat.dart';
-part 'src/count.dart';
-part 'src/cycle.dart';
-part 'src/empty.dart';
-part 'src/enumerate.dart';
-part 'src/infinite_iterable.dart';
-part 'src/merge.dart';
-part 'src/min_max.dart';
-part 'src/partition.dart';
-part 'src/generating_iterable.dart';
-part 'src/range.dart';
-part 'src/zip.dart';
+/// Returns `true` if [i] is a non-empty iterable.
+bool isNotEmpty(Iterable i) => i != null && i.isNotEmpty;

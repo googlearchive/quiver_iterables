@@ -15,6 +15,7 @@
 import 'concat_test.dart' as concat_test;
 import 'count_test.dart' as count_test;
 import 'cycle_test.dart' as cycle_test;
+import 'empty_test.dart' as empty_test;
 import 'enumerate_test.dart' as enumerate_test;
 import 'generating_iterable_test.dart' as generating_iterable_test;
 import 'merge_test.dart' as merge_test;
@@ -27,6 +28,7 @@ main() {
   concat_test.main();
   count_test.main();
   cycle_test.main();
+  empty_test.main();
   enumerate_test.main();
   generating_iterable_test.main();
   merge_test.main();

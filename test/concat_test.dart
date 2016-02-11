@@ -15,7 +15,7 @@
 library quiver.iterables.concat_test;
 
 import 'package:test/test.dart';
-import 'package:quiver_iterables/iterables.dart';
+import 'package:quiver_iterables/iterables.dart' hide isEmpty;
 
 main() {
   group('concat', () {
