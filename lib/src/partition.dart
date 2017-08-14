@@ -15,12 +15,12 @@
 part of quiver.iterables;
 
 /// Partitions the input iterable into lists of the specified size.
-Iterable<List> partition(Iterable iterable, int size) {
+Iterable<List<T>> partition<T>(Iterable<T> iterable, int size) {
   if (size <= 0) throw new ArgumentError(size);
-  return _partition(iterable, size);
+  return _partition<T>(iterable, size);
 }
 
-Iterable<List> _partition(Iterable iterable, int size) sync* {
+Iterable<List<T>> _partition<T>(Iterable<T> iterable, int size) sync* {
   if (iterable.isEmpty) return;
   var iterator = iterable.iterator;
   iterator.moveNext();

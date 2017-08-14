@@ -16,8 +16,8 @@ part of quiver.iterables;
 
 /// Returns an [Iterable] of [IndexedValue]s where the nth value holds the nth
 /// element of [iterable] and its index.
-Iterable<IndexedValue> enumerate(Iterable iterable) =>
-    new EnumerateIterable(iterable);
+Iterable<IndexedValue<V>> enumerate<V>(Iterable<V> iterable) =>
+    new EnumerateIterable<V>(iterable);
 
 class IndexedValue<V> {
   final int index;

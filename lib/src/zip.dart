@@ -18,7 +18,7 @@ part of quiver.iterables;
 /// iterable contains the nth element from every Iterable in [iterables]. The
 /// returned Iterable is as long as the shortest Iterable in the argument. If
 /// [iterables] is empty, it returns an empty list.
-Iterable<List> zip(Iterable<Iterable> iterables) sync* {
+Iterable<List<T>> zip<T>(Iterable<Iterable<T>> iterables) sync* {
   if (iterables.isEmpty) return;
   var iterators = iterables.map((i) => i.iterator).toList(growable: false);
   while (true) {

@@ -14,6 +14,9 @@
 
 part of quiver.iterables;
 
+Comparator<T> _comparator<T>(Comparator<T> compare) =>
+    compare ?? Comparable.compare;
+
 /// Returns the maximum value in [i], according to the order specified by the
 /// [compare] function, or `null` if [i] is empty.
 ///
@@ -21,8 +24,10 @@ part of quiver.iterables;
 /// [Comparable.compare] is used. If [i] contains null elements, an exception
 /// will be thrown.
 ///
-dynamic max(Iterable i, [Comparator compare = Comparable.compare]) =>
-    i.isEmpty ? null : i.reduce((a, b) => compare(a, b) > 0 ? a : b);
+T max<T>(Iterable<T> i, [Comparator<T> compare]) {
+  compare = _comparator<T>(compare);
+  return i.isEmpty ? null : i.reduce((a, b) => compare(a, b) > 0 ? a : b);
+}
 
 /// Returns the minimum value in [i], according to the order specified by the
 /// [compare] function, or `null` if [i] is empty.
@@ -30,8 +35,10 @@ dynamic max(Iterable i, [Comparator compare = Comparable.compare]) =>
 /// The compare function must act as a [Comparator]. If [compare] is omitted,
 /// [Comparable.compare] is used. If [i] contains null elements, an exception
 /// will be thrown.
-dynamic min(Iterable i, [Comparator compare = Comparable.compare]) =>
-    i.isEmpty ? null : i.reduce((a, b) => compare(a, b) < 0 ? a : b);
+T min<T>(Iterable<T> i, [Comparator<T> compare]) {
+  compare = _comparator<T>(compare);
+  return i.isEmpty ? null : i.reduce((a, b) => compare(a, b) < 0 ? a : b);
+}
 
 /// Returns the minimum and maximum values in [i], according to the order
 /// specified by the [compare] function, in an [Extent] instance. Always returns
@@ -43,7 +50,8 @@ dynamic min(Iterable i, [Comparator compare = Comparable.compare]) =>
 ///
 /// If [i] is empty, an [Extent] is returned with [:null:] values for [:min:] and
 /// [:max:], since there are no valid values for them.
-Extent extent(Iterable i, [Comparator compare = Comparable.compare]) {
+Extent<T> extent<T>(Iterable<T> i, [Comparator<T> compare]) {
+  compare = _comparator(compare);
   var iterator = i.iterator;
   var hasNext = iterator.moveNext();
   if (!hasNext) return new Extent(null, null);
@@ -56,8 +64,8 @@ Extent extent(Iterable i, [Comparator compare = Comparable.compare]) {
   return new Extent(min, max);
 }
 
-class Extent {
-  final min;
-  final max;
+class Extent<T> {
+  final T min;
+  final T max;
   Extent(this.min, this.max);
 }
