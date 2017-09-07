@@ -16,43 +16,43 @@ part of quiver.iterables;
 
 /// A base class for [Iterable]s of infinite length that throws
 /// [UnsupportedError] for methods that would require the Iterable to terminate.
-abstract class InfiniteIterable<E> extends IterableBase<E> {
+abstract class InfiniteIterable<T> extends IterableBase<T> {
   bool get isEmpty => false;
 
   bool get isNotEmpty => true;
 
   @alwaysThrows
-  E get last => throw new UnsupportedError('last');
+  T get last => throw new UnsupportedError('last');
 
   @alwaysThrows
   int get length => throw new UnsupportedError('length');
 
   @alwaysThrows
-  E get single => throw new StateError('single');
+  T get single => throw new StateError('single');
 
   @alwaysThrows
-  bool every(bool f(E element)) => throw new UnsupportedError('every');
+  bool every(bool f(T element)) => throw new UnsupportedError('every');
 
   @alwaysThrows
-  T fold<T>(T initialValue, T combine(T previousValue, E element)) =>
+  T1 fold<T1>(T1 initialValue, T1 combine(T1 previousValue, T element)) =>
       throw new UnsupportedError('fold');
 
   @alwaysThrows
-  void forEach(void f(E element)) => throw new UnsupportedError('forEach');
+  void forEach(void f(T element)) => throw new UnsupportedError('forEach');
 
   @alwaysThrows
   String join([String separator = '']) => throw new UnsupportedError('join');
 
   @alwaysThrows
-  E lastWhere(bool test(E value), {E orElse()}) =>
+  T lastWhere(bool test(T value), {T orElse()}) =>
       throw new UnsupportedError('lastWhere');
 
   @alwaysThrows
-  E reduce(E combine(E value, E element)) =>
+  T reduce(T combine(T value, T element)) =>
       throw new UnsupportedError('reduce');
 
   @alwaysThrows
-  List<E> toList({bool growable: true}) => throw new UnsupportedError('toList');
+  List<T> toList({bool growable: true}) => throw new UnsupportedError('toList');
 
-  Set<E> toSet() => throw new UnsupportedError('toSet');
+  Set<T> toSet() => throw new UnsupportedError('toSet');
 }
