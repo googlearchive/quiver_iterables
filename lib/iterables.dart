@@ -15,6 +15,7 @@
 library quiver.iterables;
 
 import 'dart:collection';
+import 'package:meta/meta.dart' show alwaysThrows;
 
 part 'src/concat.dart';
 part 'src/count.dart';

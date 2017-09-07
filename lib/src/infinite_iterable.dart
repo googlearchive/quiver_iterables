@@ -21,28 +21,37 @@ abstract class InfiniteIterable<T> extends IterableBase<T> {
 
   bool get isNotEmpty => true;
 
+  @alwaysThrows
   T get last => throw new UnsupportedError('last');
 
+  @alwaysThrows
   int get length => throw new UnsupportedError('length');
 
+  @alwaysThrows
   T get single => throw new StateError('single');
 
+  @alwaysThrows
   bool every(bool f(T element)) => throw new UnsupportedError('every');
 
-  @override
-  V fold<V>(V initialValue, combine(V previousValue, T element)) =>
+  @alwaysThrows
+  T1 fold<T1>(T1 initialValue, T1 combine(T1 previousValue, T element)) =>
       throw new UnsupportedError('fold');
 
+  @alwaysThrows
   void forEach(void f(T element)) => throw new UnsupportedError('forEach');
 
+  @alwaysThrows
   String join([String separator = '']) => throw new UnsupportedError('join');
 
+  @alwaysThrows
   T lastWhere(bool test(T value), {T orElse()}) =>
       throw new UnsupportedError('lastWhere');
 
+  @alwaysThrows
   T reduce(T combine(T value, T element)) =>
       throw new UnsupportedError('reduce');
 
+  @alwaysThrows
   List<T> toList({bool growable: true}) => throw new UnsupportedError('toList');
 
   Set<T> toSet() => throw new UnsupportedError('toSet');
